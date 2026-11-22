@@ -1,4 +1,5 @@
 dependencies:
+  vittil-io/vittil: "^0.1.5"
   techfab-iot/tef-lora:
     version: "*"
     override_path: ../../..

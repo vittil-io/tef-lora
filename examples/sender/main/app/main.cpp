@@ -15,6 +15,7 @@
 #include "nvs_flash.h"
 #include "tef/lora.h"
 #include "tef/boards/meshlink_gateway.h"
+#include "vittil.h"
 
 namespace board = tef::boards::meshlink_gateway::v0_5_0;
 namespace radio = tef::lora::sx1262;
@@ -126,6 +127,7 @@ void task_tx(void *pvParameters) {
 
 extern "C" void app_main() {
   s_boot_count = initBootCount();
+  vittil_start();  // crash reports to Vittil: the coredump kept in flash uploads on the next boot
 
   // Initialize LoRa
   constexpr auto pins = board::kLoraRadioPins;
